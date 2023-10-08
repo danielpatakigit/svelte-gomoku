@@ -1,6 +1,4 @@
 <script>
-  import Scoreboard from "./Scoreboard.svelte";
-
   let boardSize = 19;
   let turn = 1;
   let placementCounter = 1;
