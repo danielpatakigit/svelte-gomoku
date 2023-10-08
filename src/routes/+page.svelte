@@ -119,8 +119,11 @@
   function restartGame() {
     turn = 1;
     boardArray = new Array(boardSize).fill([]).map(() => new Array(boardSize).fill(null));
+    placementCounterArray = new Array(boardSize).fill([]).map(() => new Array(boardSize).fill(null));
+
     player === 1 ? (player = 2) : (player = 1);
     gameOver = false;
+    placementCounter = 1;
     checkWinnerArray = []; // Reset checkWinnerArray
   }
 
@@ -176,7 +179,7 @@
 <style>
   hr {
     border: 0.1px solid rgb(225, 225, 225);
-    margin: 2rem 0;
+    margin: 1rem 0;
     width: 100%;
   }
 
@@ -204,14 +207,16 @@
   }
 
   .board {
-    margin: 2rem;
-    aspect-ratio: 1/1;
-    width: 80%;
+    margin: 1rem;
+    width: 700px;
+    height: 700px;
     border: 2px solid grey;
     display: grid;
     grid-template-columns: repeat(var(--board-size), 1fr);
     grid-template-rows: repeat(var(--board-size), 1fr);
     background-color: grey;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 
   .field {
@@ -247,8 +252,8 @@
     transition: all 200ms ease-in-out;
 
     color: var(--text-clr);
-    font-weight: 600;
-    font-size: 1.5vw;
+    font-weight: 700;
+    font-size: 16px;
     text-align: center;
     display: flex;
     align-items: center;
